@@ -1,57 +1,64 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+var supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+var supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export var supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
 
-// ═══ AUTH ═══
 export async function signUp(email, password) {
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  return { data, error };
+  if (!supabase) return { data: null, error: { message: 'DB not connected' } };
+  return await supabase.auth.signUp({ email: email, password: password });
 }
 
 export async function signIn(email, password) {
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  return { data, error };
+  if (!supabase) return { data: null, error: { message: 'DB not connected' } };
+  return await supabase.auth.signInWithPassword({ email: email, password: password });
 }
 
 export async function signOut() {
-  const { error } = await supabase.auth.signOut();
-  return { error };
+  if (!supabase) return { error: null };
+  return await supabase.auth.signOut();
 }
 
 export async function getUser() {
-  const { data: { user } } = await supabase.auth.getUser();
-  return user;
+  if (!supabase) return null;
+  try {
+    var result = await supabase.auth.getUser();
+    return result.data ? result.data.user : null;
+  } catch (e) { return null; }
 }
 
 export function onAuthChange(callback) {
+  if (!supabase) return { data: { subscription: { unsubscribe: function(){} } } };
   return supabase.auth.onAuthStateChange(callback);
 }
 
-// ═══ STUDENT CRUD ═══
 export async function loadStudents() {
-  const { data, error } = await supabase
-    .from('students')
-    .select('*')
-    .order('updated_at', { ascending: false });
-  if (error) { console.error('Load error:', error); return []; }
-  return data.map(function(row) { return Object.assign({ id: row.id, name: row.name }, row.data); });
+  if (!supabase) return [];
+  try {
+    var result = await supabase.from('students').select('*').order('updated_at', { ascending: false });
+    if (result.error) return [];
+    return result.data.map(function(row) {
+      return Object.assign({ id: row.id, name: row.name }, row.data || {});
+    });
+  } catch (e) { return []; }
 }
 
 export async function saveStudent(student) {
-  var id = student.id;
-  var name = student.name;
-  var error = (await supabase.from('students').upsert({
-    id: id, name: name, data: student, updated_at: new Date().toISOString()
-  })).error;
-  if (error) console.error('Save error:', error);
-  return !error;
+  if (!supabase) return false;
+  try {
+    var result = await supabase.from('students').upsert({
+      id: student.id, name: student.name, data: student,
+      updated_at: new Date().toISOString()
+    });
+    return !result.error;
+  } catch (e) { return false; }
 }
 
 export async function deleteStudent(id) {
-  var error = (await supabase.from('students').delete().eq('id', id)).error;
-  if (error) console.error('Delete error:', error);
-  return !error;
+  if (!supabase) return false;
+  try {
+    var result = await supabase.from('students').delete().eq('id', id);
+    return !result.error;
+  } catch (e) { return false; }
 }

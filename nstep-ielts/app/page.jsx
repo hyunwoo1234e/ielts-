@@ -128,6 +128,125 @@ function mkG(){return{
 };}function mkI(){return{name:"",email:"",phone:"",tt:"academic",tgt:7,tDate:"",bg:"",req:"",gender:"",age:"",mbti:"",personality:"",targetSchool:"",purpose:"",schedule:"",lifeNote:"",learnStyle:""};}
 
 
+
+function makeDemo(){
+  var a={testUsed:"Cambridge IELTS 19 Academic Test 1",
+    lQt:{s1:{0:3,1:3},s2:{0:2,1:1,2:2},s3:{0:2,1:1,2:1},s4:{0:2,1:1}},
+    rQt:{p1:{0:3,1:2,2:2},p2:{0:2,1:2,2:1},p3:{0:1,1:1,2:1}},
+    w:{t1:{ta:5,cc:4.5,lr:4.5,gra:4},t2:{ta:4.5,cc:4.5,lr:4,gra:4},cm:"T2 논리구조 약함, 어휘 반복 심함"},
+    s:{p1:{fc:5,lr:4.5,gra:4,pron:5},p2:{fc:4,lr:4,gra:4,pron:4.5},p3:{fc:3.5,lr:4,gra:3.5,pron:4},cm:"Part2 1분도 못 채움, Part3 아이디어 부족"},
+    sum:"전체적으로 기초 부족. L S3-4 집중력, R 시간관리, W 논리+어휘, S 유창성 급선무"};
+
+  var ss=[];var n=1;
+  /* W criteria progression: 3 months of gradual growth */
+  var wProg=[
+    {t1:{ta:5,cc:4.5,lr:4.5,gra:4},t2:{ta:4.5,cc:4.5,lr:4,gra:4}},
+    {t1:{ta:5,cc:5,lr:4.5,gra:4.5},t2:{ta:5,cc:4.5,lr:4.5,gra:4}},
+    {t1:{ta:5,cc:5,lr:5,gra:4.5},t2:{ta:5,cc:5,lr:4.5,gra:4.5}},
+    {t1:{ta:5.5,cc:5,lr:5,gra:4.5},t2:{ta:5,cc:5,lr:5,gra:4.5}},
+    {t1:{ta:5.5,cc:5.5,lr:5,gra:5},t2:{ta:5,cc:5,lr:5,gra:5}},
+    {t1:{ta:5.5,cc:5.5,lr:5,gra:5},t2:{ta:5.5,cc:5.5,lr:5,gra:5}},
+    {t1:{ta:5.5,cc:5.5,lr:5.5,gra:5},t2:{ta:5.5,cc:5.5,lr:5,gra:5}},
+    {t1:{ta:6,cc:5.5,lr:5.5,gra:5},t2:{ta:5.5,cc:5.5,lr:5.5,gra:5}},
+    {t1:{ta:6,cc:6,lr:5.5,gra:5.5},t2:{ta:5.5,cc:5.5,lr:5.5,gra:5}},
+    {t1:{ta:6,cc:6,lr:5.5,gra:5.5},t2:{ta:6,cc:5.5,lr:5.5,gra:5.5}},
+    {t1:{ta:6,cc:6,lr:6,gra:5.5},t2:{ta:6,cc:6,lr:5.5,gra:5.5}},
+    {t1:{ta:6,cc:6,lr:6,gra:5.5},t2:{ta:6,cc:6,lr:6,gra:5.5}},
+    {t1:{ta:6.5,cc:6,lr:6,gra:5.5},t2:{ta:6,cc:6,lr:6,gra:5.5}},
+    {t1:{ta:6.5,cc:6,lr:6,gra:6},t2:{ta:6,cc:6,lr:6,gra:5.5}},
+    {t1:{ta:6.5,cc:6.5,lr:6,gra:6},t2:{ta:6,cc:6,lr:6,gra:6}},
+    {t1:{ta:6.5,cc:6.5,lr:6,gra:6},t2:{ta:6.5,cc:6,lr:6,gra:6}},
+    {t1:{ta:6.5,cc:6.5,lr:6.5,gra:6},t2:{ta:6.5,cc:6.5,lr:6,gra:6}},
+    {t1:{ta:7,cc:6.5,lr:6.5,gra:6},t2:{ta:6.5,cc:6.5,lr:6.5,gra:6}},
+    {t1:{ta:7,cc:6.5,lr:6.5,gra:6.5},t2:{ta:6.5,cc:6.5,lr:6.5,gra:6}},
+    {t1:{ta:7,cc:7,lr:6.5,gra:6.5},t2:{ta:7,cc:6.5,lr:6.5,gra:6}},
+    {t1:{ta:7,cc:7,lr:6.5,gra:6.5},t2:{ta:7,cc:6.5,lr:6.5,gra:6.5}},
+    {t1:{ta:7,cc:7,lr:7,gra:6.5},t2:{ta:7,cc:7,lr:6.5,gra:6.5}},
+    {t1:{ta:7,cc:7,lr:7,gra:6.5},t2:{ta:7,cc:7,lr:6.5,gra:6.5}},
+    {t1:{ta:7,cc:7,lr:7,gra:7},t2:{ta:7,cc:7,lr:7,gra:6.5}}
+  ];
+  var sProg=[
+    {p1:{fc:5,lr:4.5,gra:4,pron:5},p2:{fc:4,lr:4,gra:4,pron:4.5},p3:{fc:3.5,lr:4,gra:3.5,pron:4}},
+    {p1:{fc:5,lr:5,gra:4.5,pron:5},p2:{fc:4.5,lr:4.5,gra:4,pron:4.5},p3:{fc:4,lr:4,gra:4,pron:4.5}},
+    {p1:{fc:5.5,lr:5,gra:4.5,pron:5},p2:{fc:4.5,lr:4.5,gra:4.5,pron:5},p3:{fc:4.5,lr:4.5,gra:4,pron:4.5}},
+    {p1:{fc:5.5,lr:5,gra:5,pron:5.5},p2:{fc:5,lr:5,gra:4.5,pron:5},p3:{fc:4.5,lr:4.5,gra:4.5,pron:5}},
+    {p1:{fc:5.5,lr:5.5,gra:5,pron:5.5},p2:{fc:5,lr:5,gra:5,pron:5},p3:{fc:5,lr:5,gra:4.5,pron:5}},
+    {p1:{fc:6,lr:5.5,gra:5,pron:5.5},p2:{fc:5,lr:5,gra:5,pron:5.5},p3:{fc:5,lr:5,gra:5,pron:5}},
+    {p1:{fc:6,lr:5.5,gra:5.5,pron:5.5},p2:{fc:5.5,lr:5.5,gra:5,pron:5.5},p3:{fc:5,lr:5,gra:5,pron:5.5}},
+    {p1:{fc:6,lr:6,gra:5.5,pron:6},p2:{fc:5.5,lr:5.5,gra:5,pron:5.5},p3:{fc:5.5,lr:5.5,gra:5,pron:5.5}},
+    {p1:{fc:6,lr:6,gra:5.5,pron:6},p2:{fc:5.5,lr:5.5,gra:5.5,pron:5.5},p3:{fc:5.5,lr:5.5,gra:5.5,pron:5.5}},
+    {p1:{fc:6,lr:6,gra:6,pron:6},p2:{fc:6,lr:5.5,gra:5.5,pron:6},p3:{fc:5.5,lr:5.5,gra:5.5,pron:5.5}},
+    {p1:{fc:6.5,lr:6,gra:6,pron:6},p2:{fc:6,lr:6,gra:5.5,pron:6},p3:{fc:5.5,lr:5.5,gra:5.5,pron:6}},
+    {p1:{fc:6.5,lr:6,gra:6,pron:6},p2:{fc:6,lr:6,gra:6,pron:6},p3:{fc:6,lr:6,gra:5.5,pron:6}},
+    {p1:{fc:6.5,lr:6.5,gra:6,pron:6},p2:{fc:6,lr:6,gra:6,pron:6},p3:{fc:6,lr:6,gra:6,pron:6}},
+    {p1:{fc:6.5,lr:6.5,gra:6,pron:6.5},p2:{fc:6,lr:6,gra:6,pron:6},p3:{fc:6,lr:6,gra:6,pron:6}},
+    {p1:{fc:6.5,lr:6.5,gra:6.5,pron:6.5},p2:{fc:6.5,lr:6,gra:6,pron:6},p3:{fc:6,lr:6,gra:6,pron:6}},
+    {p1:{fc:7,lr:6.5,gra:6.5,pron:6.5},p2:{fc:6.5,lr:6.5,gra:6,pron:6},p3:{fc:6,lr:6,gra:6,pron:6.5}},
+    {p1:{fc:7,lr:6.5,gra:6.5,pron:6.5},p2:{fc:6.5,lr:6.5,gra:6,pron:6.5},p3:{fc:6.5,lr:6,gra:6,pron:6.5}},
+    {p1:{fc:7,lr:7,gra:6.5,pron:6.5},p2:{fc:6.5,lr:6.5,gra:6.5,pron:6.5},p3:{fc:6.5,lr:6.5,gra:6,pron:6.5}},
+    {p1:{fc:7,lr:7,gra:6.5,pron:7},p2:{fc:6.5,lr:6.5,gra:6.5,pron:6.5},p3:{fc:6.5,lr:6.5,gra:6.5,pron:6.5}},
+    {p1:{fc:7,lr:7,gra:7,pron:7},p2:{fc:7,lr:6.5,gra:6.5,pron:6.5},p3:{fc:6.5,lr:6.5,gra:6.5,pron:6.5}},
+    {p1:{fc:7,lr:7,gra:7,pron:7},p2:{fc:7,lr:7,gra:6.5,pron:6.5},p3:{fc:6.5,lr:6.5,gra:6.5,pron:7}},
+    {p1:{fc:7,lr:7,gra:7,pron:7},p2:{fc:7,lr:7,gra:6.5,pron:7},p3:{fc:7,lr:6.5,gra:6.5,pron:7}},
+    {p1:{fc:7,lr:7,gra:7,pron:7},p2:{fc:7,lr:7,gra:7,pron:7},p3:{fc:7,lr:7,gra:6.5,pron:7}},
+    {p1:{fc:7,lr:7,gra:7,pron:7},p2:{fc:7,lr:7,gra:7,pron:7},p3:{fc:7,lr:7,gra:7,pron:7}}
+  ];
+  var tags=[["Spelling오류","Distractor","T1Overview누락"],["시간배분실패","NG vs F혼동"],["S3-4집중력","Paraphrase부족"],["Thesis불명확","근거부족"],["Spelling오류","동의어실패"],["Heading현혹","답변짧음"],["접속사과다","어휘반복"],["Paraphrase부족","P3깊이부족"],["MC부분정답","강세오류"],["어휘부족","문법반복"],["Spelling오류"],["시간배분실패"],["Paraphrase부족"],["강세오류"],["근거부족"],["Spelling오류"],["P3깊이부족"],["어휘부족"],["접속사과다"],["Paraphrase부족"],["MC부분정답"],["강세오류"],["Spelling오류"],["시간배분실패"]];
+  var foci=[["listening","writing"],["reading","speaking"],["listening","speaking"],["writing","reading"],["listening","writing"],["reading","speaking"],["writing","speaking"],["listening","reading"],["listening","writing"],["reading","speaking"],["writing","speaking"],["listening","reading"],["listening","writing"],["reading","speaking"],["listening","speaking"],["writing","reading"],["listening","writing"],["reading","speaking"],["writing","speaking"],["listening","reading"],["listening","writing"],["reading","speaking"],["writing","speaking"],["listening","reading"]];
+  var dates=["2026-01-06","2026-01-08","2026-01-10","2026-01-13","2026-01-15","2026-01-17","2026-01-20","2026-01-22","2026-01-27","2026-01-29","2026-01-31","2026-02-03","2026-02-05","2026-02-07","2026-02-10","2026-02-12","2026-02-14","2026-02-17","2026-02-19","2026-02-21","2026-02-24","2026-02-26","2026-02-28","2026-03-03"];
+  var absent=[7,15];
+
+  for(var i=0;i<24;i++){
+    var hwDone=i<8?3:i<16?2:i<20?2:3;
+    ss.push({id:"d"+i,dt:dates[i],num:n++,mock:false,durH:1,durM:30,foc:foci[i],att:absent.indexOf(i)===-1,
+      lQt:{},rQt:{},wCr:wProg[i],sCr:sProg[i],eTags:tags[i]||[],eNotes:"",str:"",weak:"",
+      hw:[{id:"dh"+i+"a",type:"sh",lb:"쉐도잉",detail:"15분",done:hwDone>=1},{id:"dh"+i+"b",type:"vc",lb:"어휘",detail:"20단어",done:hwDone>=2},{id:"dh"+i+"c",type:"wt2",lb:"W-T2",detail:"에세이 1편",done:hwDone>=3}],
+      wCont:"",wFeed:"",sExpr:"",sPron:"",notes:"",qtSel:{},qtNt:{}});
+  }
+
+  /* 모의고사 4회 (월 1회) */
+  var mDates=["2026-01-11","2026-02-01","2026-02-22","2026-03-08"];
+  var mL=[
+    {s1:{0:3,1:3},s2:{0:2,1:1,2:2},s3:{0:2,1:1,2:1},s4:{0:2,1:2}},
+    {s1:{0:4,1:4},s2:{0:3,1:2,2:2},s3:{0:3,1:2,2:2},s4:{0:3,1:2}},
+    {s1:{0:5,1:4},s2:{0:4,1:2,2:3},s3:{0:3,1:2,2:2},s4:{0:3,1:3}},
+    {s1:{0:5,1:5},s2:{0:4,1:3,2:3},s3:{0:3,1:3,2:2},s4:{0:4,1:3}}
+  ];
+  var mR=[
+    {p1:{0:3,1:2,2:2},p2:{0:2,1:2,2:1},p3:{0:1,1:1,2:1}},
+    {p1:{0:4,1:3,2:3},p2:{0:3,1:2,2:2},p3:{0:2,1:2,2:1}},
+    {p1:{0:4,1:3,2:3},p2:{0:4,1:3,2:2},p3:{0:2,1:3,2:2}},
+    {p1:{0:5,1:4,2:3},p2:{0:4,1:3,2:3},p3:{0:3,1:3,2:2}}
+  ];
+  var mW=[
+    {t1:{ta:5,cc:4.5,lr:4.5,gra:4},t2:{ta:4.5,cc:4.5,lr:4,gra:4}},
+    {t1:{ta:5.5,cc:5.5,lr:5,gra:5},t2:{ta:5.5,cc:5,lr:5,gra:5}},
+    {t1:{ta:6,cc:6,lr:5.5,gra:5.5},t2:{ta:6,cc:6,lr:5.5,gra:5.5}},
+    {t1:{ta:6.5,cc:6.5,lr:6,gra:6},t2:{ta:6.5,cc:6.5,lr:6,gra:6}}
+  ];
+  var mS=[
+    {p1:{fc:5,lr:4.5,gra:4,pron:5},p2:{fc:4,lr:4,gra:4,pron:4.5},p3:{fc:3.5,lr:4,gra:3.5,pron:4}},
+    {p1:{fc:5.5,lr:5.5,gra:5,pron:5.5},p2:{fc:5,lr:5,gra:5,pron:5},p3:{fc:5,lr:5,gra:4.5,pron:5}},
+    {p1:{fc:6,lr:6,gra:5.5,pron:6},p2:{fc:6,lr:5.5,gra:5.5,pron:5.5},p3:{fc:5.5,lr:5.5,gra:5.5,pron:5.5}},
+    {p1:{fc:7,lr:6.5,gra:6.5,pron:6.5},p2:{fc:6.5,lr:6.5,gra:6,pron:6.5},p3:{fc:6.5,lr:6.5,gra:6.5,pron:6.5}}
+  ];
+  for(var j=0;j<4;j++){
+    ss.push({id:"dm"+j,dt:mDates[j],num:n++,mock:true,durH:2,durM:45,foc:["listening","reading","writing","speaking"],att:true,
+      lQt:mL[j],rQt:mR[j],wCr:mW[j],sCr:mS[j],eTags:["시간배분실패","Spelling오류"],eNotes:"",str:"",weak:"",
+      hw:[],wCont:"",wFeed:"",sExpr:"",sPron:"",notes:"",qtSel:{},qtNt:{}});
+  }
+  ss.sort(function(a,b){return a.dt.localeCompare(b.dt);});
+  for(var k=0;k<ss.length;k++)ss[k].num=k+1;
+
+  return{id:"demo_hong",name:"홍길동",email:"",phone:"010-0000-0000",tt:"academic",tgt:7,tDate:"2026-06-01",
+    bg:"대학 졸업, 유학 경험 없음, 독학 3개월 후 과외 시작",req:"",gender:"남",age:"26세",mbti:"ENFP",
+    personality:"외향적, 말 많음, 긍정적이나 집중력 짧음",
+    targetSchool:"University of Manchester 석사\nIELTS Overall 6.5 (각 6.0+)\n원서 마감: 2026년 7월",
+    purpose:"영국 유학 준비",schedule:"직장인, 퇴근 후 저녁 8시 수업\n주말 오전 가능",
+    learnStyle:"말하기 좋아함, 문법 설명 지루해함\n실전 연습 위주 선호\n숙제 밀리는 경향",lifeNote:"",
+    status:"active",outcome:"none",finalS:null,assess:a,sess:ss,goals:mkG()};
+}
+
 /* ═══ LOGIN ═══ */
 function LoginScreen(){
   var _m=useState("login");var mode=_m[0],setMode=_m[1];
@@ -135,38 +254,8 @@ function LoginScreen(){
   var _p=useState("");var pw=_p[0],setPw=_p[1];
   var _er=useState("");var err=_er[0],setErr=_er[1];
   var _ld=useState(false);var ld=_ld[0],setLd=_ld[1];
-  function go(){
-    if(!email||!pw){setErr("이메일과 비밀번호를 입력하세요");return;}
-    setLd(true);setErr("");
-    var fn=mode==="login"?signIn:signUp;
-    fn(email,pw).then(function(r){
-      if(r.error)setErr(r.error.message);
-      else if(mode==="signup")setErr("✅ 가입 완료! 이메일 확인 후 로그인하세요.");
-      setLd(false);
-    });
-  }
-  return(
-    <div style={{fontFamily:FT,background:X.bg,color:X.tx,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
-      <style dangerouslySetInnerHTML={{__html:"\n*::-webkit-scrollbar{width:8px;height:8px}\n*::-webkit-scrollbar-track{background:#0c1529;border-radius:8px}\n*::-webkit-scrollbar-thumb{background:#1e3a6e;border-radius:8px}\n*::-webkit-scrollbar-thumb:hover{background:#2979ff}\n*{scrollbar-width:thin;scrollbar-color:#1e3a6e #0c1529}\n"}}/>
-      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-      <div style={Object.assign({},cs,{padding:44,width:420,maxWidth:"90vw"})}>
-        <div style={{textAlign:"center",marginBottom:32}}>
-          <h1 style={{margin:0,fontSize:30,fontWeight:700}}>
-            <span style={{color:"#1a3f8b"}}>N</span><span style={{color:"#4a6fa5"}}>step</span><span style={{color:"#fff"}}>IELTS</span>
-          </h1>
-          <p style={{color:X.txm,fontSize:15,margin:"8px 0 0"}}>학생관리 시스템</p>
-        </div>
-        <div style={{display:"flex",gap:8,marginBottom:24}}>
-          <Chip active={mode==="login"} onClick={function(){setMode("login");}}>로그인</Chip>
-          <Chip active={mode==="signup"} onClick={function(){setMode("signup");}}>회원가입</Chip>
-        </div>
-        <LI label="이메일"><input type="email" value={email} onChange={function(e){setEmail(e.target.value);}} placeholder="email@example.com" style={is({fontSize:16})}/></LI>
-        <LI label="비밀번호"><input type="password" value={pw} onChange={function(e){setPw(e.target.value);}} placeholder="6자 이상" style={is({fontSize:16})} onKeyDown={function(e){if(e.key==="Enter")go();}}/></LI>
-        {err&&(<div style={{color:err.includes("✅")?X.g:X.r,fontSize:14,marginBottom:10}}>{err}</div>)}
-        <button onClick={go} disabled={ld} style={Object.assign({},bP,{width:"100%",fontSize:16,padding:"14px",marginTop:10,opacity:ld?.6:1})}>{ld?"처리 중...":mode==="login"?"로그인":"회원가입"}</button>
-      </div>
-    </div>
-  );
+  function go(){if(!email||!pw){setErr("이메일과 비밀번호를 입력하세요");return;}setLd(true);setErr("");var fn=mode==="login"?signIn:signUp;fn(email,pw).then(function(r){if(r.error)setErr(r.error.message);else if(mode==="signup")setErr("✅ 가입 완료! 이메일 확인 후 로그인하세요.");setLd(false);});}
+  return(<div style={{fontFamily:FT,background:X.bg,color:X.tx,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/><div style={Object.assign({},cs,{padding:44,width:420,maxWidth:"90vw"})}><div style={{textAlign:"center",marginBottom:32}}><h1 style={{margin:0,fontSize:30,fontWeight:700}}><span style={{color:"#1a3f8b"}}>N</span><span style={{color:"#4a6fa5"}}>step</span><span style={{color:"#fff"}}>IELTS</span></h1><p style={{color:X.txm,fontSize:15,margin:"8px 0 0"}}>학생관리 시스템</p></div><div style={{display:"flex",gap:8,marginBottom:24}}><Chip active={mode==="login"} onClick={function(){setMode("login");}}>로그인</Chip><Chip active={mode==="signup"} onClick={function(){setMode("signup");}}>회원가입</Chip></div><LI label="이메일"><input type="email" value={email} onChange={function(e){setEmail(e.target.value);}} placeholder="email@example.com" style={is({fontSize:16})}/></LI><LI label="비밀번호"><input type="password" value={pw} onChange={function(e){setPw(e.target.value);}} placeholder="6자 이상" style={is({fontSize:16})} onKeyDown={function(e){if(e.key==="Enter")go();}}/></LI>{err&&(<div style={{color:err.includes("✅")?X.g:X.r,fontSize:14,marginBottom:10}}>{err}</div>)}<button onClick={go} disabled={ld} style={Object.assign({},bP,{width:"100%",fontSize:16,padding:"14px",marginTop:10,opacity:ld?.6:1})}>{ld?"처리 중...":mode==="login"?"로그인":"회원가입"}</button></div></div>);
 }
 
 /* ═══ APP ═══ */
@@ -174,17 +263,8 @@ export default function App(){
   var _u=useState(null);var user=_u[0],setUser=_u[1];
   var _ck=useState(true);var checking=_ck[0],setChecking=_ck[1];
   var _st=useState([]);var students=_st[0],setStudents=_st[1];
-
-  useEffect(function(){
-    getUser().then(function(u){setUser(u);setChecking(false);});
-    var sub=onAuthChange(function(ev,sess){setUser(sess?sess.user:null);});
-    return function(){if(sub&&sub.data&&sub.data.subscription)sub.data.subscription.unsubscribe();};
-  },[]);
-  useEffect(function(){if(user)loadStudents().then(function(d){
-    if(d)setStudents(d.map(function(s){
-      return Object.assign({assess:mkA(),sess:[],goals:mkG(),status:"active",outcome:"none",finalS:null},s);
-    }));
-  });},[user]);
+  useEffect(function(){getUser().then(function(u){setUser(u);setChecking(false);});var sub=onAuthChange(function(ev,sess){setUser(sess?sess.user:null);});return function(){if(sub&&sub.data&&sub.data.subscription)sub.data.subscription.unsubscribe();};},[]);
+  useEffect(function(){if(user)loadStudents().then(function(d){if(d&&d.length>0)setStudents(d.map(function(s){return Object.assign({assess:mkA(),sess:[],goals:mkG(),status:"active",outcome:"none",finalS:null},s);}));else{var demo=makeDemo();setStudents([demo]);saveStudent(demo);}});},[user]);
   var _v=useState("list");var view=_v[0],setView=_v[1];
   var _si=useState(null);var selId=_si[0],setSelId=_si[1];
   var _tb=useState("overview");var tab=_tb[0],setTab=_tb[1];
@@ -275,7 +355,7 @@ export default function App(){
 
   /* ─── STUDENT ─── */
   if(!student)return null;
-  var tabs=[["overview","📊 종합"],["profile","👤 프로필"],["assess","🎯 진단"],["sess","📝 수업"],["curr","📐 커리큘럼"],["prog","📈 성장"],["outc","🏆 결과"]];
+  var tabs=[["overview","📊 종합"],["profile","👤 프로필"],["assess","🎯 진단"],["sess","📝 수업"],["curr","📐 커리큘럼"],["prog","📈 성장"],["outc","🏆 결과"],["info","📖 IELTS 정보"]];
   return(
     <div style={{fontFamily:FT,background:X.bg,color:X.tx,minHeight:"100vh",maxWidth:"100%",margin:"0 auto",padding:"20px 32px"}}>
       <style dangerouslySetInnerHTML={{__html:"\n*::-webkit-scrollbar{width:8px;height:8px}\n*::-webkit-scrollbar-track{background:#0c1529;border-radius:8px}\n*::-webkit-scrollbar-thumb{background:#1e3a6e;border-radius:8px}\n*::-webkit-scrollbar-thumb:hover{background:#2979ff}\n*{scrollbar-width:thin;scrollbar-color:#1e3a6e #0c1529}\n"}}/>
@@ -296,6 +376,7 @@ export default function App(){
       {tab==="curr"&&(<CuTab st={student} upd={upd}/>)}
       {tab==="prog"&&(<PrTab st={student}/>)}
       {tab==="outc"&&(<OuTab st={student} upd={upd}/>)}
+      {tab==="info"&&(<InfoTab/>)}
     </div>
   );
 }
@@ -853,27 +934,221 @@ function CuTab(p){
 /* ═══ PROGRESS ═══ */
 function PrTab(p){
   var st=p.st,ss=st.sess;
-  var _pf=useState("listening");var pF=_pf[0],setPF=_pf[1];
+  var _mode=useState("mock");var mode=_mode[0],setMode=_mode[1];
   if(ss.length<1)return(<div style={{textAlign:"center",padding:50,color:X.txm,fontSize:15}}>수업 기록 필요</div>);
-  var rT=st.tt==="general"?RG:RA;
-  var lineData=ss.map(function(s){var lr=qR(LT,s.lQt);var rr=qR(rT,s.rQt);
-    var w1=WK.reduce(function(sum,k){return sum+((s.wCr.t1&&s.wCr.t1[k])||0);},0)/4;
-    var w2=WK.reduce(function(sum,k){return sum+((s.wCr.t2&&s.wCr.t2[k])||0);},0)/4;
-    var wB=Math.round((w1/3+w2*2/3)*2)/2;
-    var sT=0,sC=0;SP.forEach(function(pt){SK.forEach(function(k){var v=(s.sCr[pt.id]&&s.sCr[pt.id][k])||0;if(v>0){sT+=v;sC++;}});});
-    var sB=sC>0?Math.round((sT/sC)*2)/2:0;
-    return{name:"#"+s.num,L:lr>0?r2b(lr,LB):null,R:rr>0?r2b(rr,rT===RG?GB:AB):null,W:wB||null,S:sB||null};
-  });
+  var rT=st.tt==="general"?RG:RA;var rBT=st.tt==="general"?GB:AB;
+  var mocks=ss.filter(function(s){return s.mock;});
+  var lessons=ss.filter(function(s){return!s.mock;});
   var att=ss.length?Math.round(ss.filter(function(s){return s.att;}).length/ss.length*100):0;
   var hwT=0,hwD=0;ss.forEach(function(s){hwT+=s.hw.length;s.hw.forEach(function(h){if(h.done)hwD++;});});
-  var colors=["#f59e0b","#3b82f6","#ec4899","#22c55e"];
+  var sc=calcAll(st.assess,st.tt);
+  var yD=[function(v){return Math.max(0,Math.floor(v-1));},function(v){return Math.min(9,Math.ceil(v+1));}];
+  var cols=["#f59e0b","#3b82f6","#ec4899","#22c55e"];
+  var crd=Object.assign({},cs,{padding:20});
+  var hd={fontSize:16,fontWeight:700,margin:"0 0 14px"};
+  var shd={fontSize:14,fontWeight:600,margin:"16px 0 8px"};
+
+  function mB(s){var lr=qR(LT,s.lQt||{});var rr=qR(rT,s.rQt||{});var w=s.wCr||{t1:{},t2:{}};var w1=WK.reduce(function(a,k){return a+((w.t1||{})[k]||0);},0)/4;var w2=WK.reduce(function(a,k){return a+((w.t2||{})[k]||0);},0)/4;var wb=Math.round((w1/3+w2*2/3)*2)/2;var sT=0,sC=0;var sp=s.sCr||{};SP.forEach(function(pt){var pd=sp[pt.id]||{};SK.forEach(function(k){var v=pd[k]||0;if(v>0){sT+=v;sC++;}});});var sb=sC>0?Math.round((sT/sC)*2)/2:0;return{L:lr>0?r2b(lr,LB):0,R:rr>0?r2b(rr,rBT):0,W:wb,S:sb,OA:ovBand(lr>0?r2b(lr,LB):0,rr>0?r2b(rr,rBT):0,wb,sb),lr:lr,rr:rr};}
+  function sWS(s){var w=s.wCr||{t1:{},t2:{}};var w1=WK.reduce(function(a,k){return a+((w.t1||{})[k]||0);},0)/4;var w2=WK.reduce(function(a,k){return a+((w.t2||{})[k]||0);},0)/4;var wb=Math.round((w1/3+w2*2/3)*2)/2;var sT=0,sC=0;var sp=s.sCr||{};SP.forEach(function(pt){var pd=sp[pt.id]||{};SK.forEach(function(k){var v=pd[k]||0;if(v>0){sT+=v;sC++;}});});var sb=sC>0?Math.round((sT/sC)*2)/2:0;return{W:wb,S:sb};}
+  function GBar(pr){var v1=pr.v1,v2=pr.v2,lb=pr.label,mx=pr.max||9,lw=pr.lw||130;var d=v2-v1;var p2=mx>0?v2/mx*100:0;return(<div style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}><span style={{fontSize:13,color:X.txm,minWidth:lw}}>{lb}</span><div style={{flex:1,height:8,background:X.s3,borderRadius:4,overflow:"hidden"}}><div style={{width:p2+"%",height:"100%",background:d>=0?X.g:X.r,borderRadius:4}}/></div><span style={{fontFamily:MO,fontSize:12,minWidth:35,textAlign:"right",color:bc(v1)}}>{v1}</span><span style={{color:X.txm,fontSize:10}}>→</span><span style={{fontFamily:MO,fontSize:12,minWidth:35,color:bc(v2)}}>{v2}</span>{d!==0&&(<span style={{fontFamily:MO,fontSize:12,minWidth:35,color:d>0?X.g:X.r}}>{d>0?"+":""}{typeof v1==="number"&&v1%1===0?d:d.toFixed(1)}</span>)}</div>);}
 
   return(<div style={{display:"grid",gap:14}}>
-    <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10}}>
-      {[["수업",ss.length+"회",X.ac],["출석",att+"%",att>=80?X.g:X.r],["숙제",hwT?Math.round(hwD/hwT*100)+"%":"—",X.g],["모의고사",ss.filter(function(s){return s.mock;}).length+"회",X.p]].map(function(a,i){return(<div key={i} style={{background:X.s2,borderRadius:10,padding:"12px 8px",textAlign:"center",border:"1px solid "+X.bd}}><div style={{fontSize:13,color:X.txm}}>{a[0]}</div><div style={{fontSize:22,fontWeight:700,fontFamily:MO,color:a[2]}}>{a[1]}</div></div>);})}
+    {/* Stats */}
+    <div style={{display:"grid",gridTemplateColumns:"repeat(6,1fr)",gap:10}}>
+      {[["수업",lessons.length+"회",X.ac],["모의",mocks.length+"회",X.p],["출석",att+"%",att>=80?X.g:X.r],["숙제",hwT?Math.round(hwD/hwT*100)+"%":"—",hwT&&hwD/hwT>=.7?X.g:X.o],["초기","OA "+sc.ov,bc(sc.ov)],["최근",mocks.length>0?"OA "+mB(mocks[mocks.length-1]).OA:"—",mocks.length>0?bc(mB(mocks[mocks.length-1]).OA):X.txm]].map(function(a,i){return(<div key={i} style={{background:X.s2,borderRadius:10,padding:"12px 6px",textAlign:"center",border:"1px solid "+X.bd}}><div style={{fontSize:11,color:X.txm}}>{a[0]}</div><div style={{fontSize:18,fontWeight:700,fontFamily:MO,color:a[2]}}>{a[1]}</div></div>);})}
     </div>
-    {lineData.length>=2&&(<div style={Object.assign({},cs,{padding:18})}><h4 style={{margin:"0 0 12px",fontSize:15,fontWeight:600}}>밴드 추이</h4><ResponsiveContainer width="100%" height={260}><LineChart data={lineData}><CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:12}}/><YAxis domain={[0,9]} tick={{fill:X.txm,fontSize:12}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:12}}/>{["L","R","W","S"].map(function(k,i){return(<Line key={k} type="monotone" dataKey={k} stroke={colors[i]} strokeWidth={2} dot={{r:3}} connectNulls/>);})}</LineChart></ResponsiveContainer></div>)}
-    <div style={Object.assign({},cs,{padding:18})}><h4 style={{margin:"0 0 12px",fontSize:15,fontWeight:600}}>문제 패턴</h4><ECloud sessions={ss}/></div>
+
+    {/* Main toggle */}
+    <div style={{display:"flex",gap:6}}>
+      <button onClick={function(){setMode("mock");}} style={{flex:1,padding:"14px",borderRadius:10,border:mode==="mock"?"2px solid "+X.p:"1px solid "+X.bd,background:mode==="mock"?X.p+"15":X.s1,color:mode==="mock"?X.p:X.txm,cursor:"pointer",fontFamily:FT,fontSize:16,fontWeight:mode==="mock"?700:400}}>🧪 모의고사 성과</button>
+      <button onClick={function(){setMode("lesson");}} style={{flex:1,padding:"14px",borderRadius:10,border:mode==="lesson"?"2px solid "+X.ac:"1px solid "+X.bd,background:mode==="lesson"?X.ac+"15":X.s1,color:mode==="lesson"?X.ac:X.txm,cursor:"pointer",fontFamily:FT,fontSize:16,fontWeight:mode==="lesson"?700:400}}>📝 일반 수업 성과</button>
+    </div>
+
+    {/* ═══ 모의고사 ═══ */}
+    {mode==="mock"&&(<div style={{display:"grid",gap:14}}>
+      {mocks.length===0?(<div style={{textAlign:"center",padding:40,color:X.txm,fontSize:15}}>모의고사 기록 없음 — 수업 탭에서 "모의고사" 추가하세요</div>):(<div style={{display:"grid",gap:14}}>
+
+        {/* 성적표 */}
+        <div style={Object.assign({},crd,{overflowX:"auto"})}>
+          <h4 style={hd}>📋 모의고사 성적표</h4>
+          <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}><thead><tr style={{borderBottom:"2px solid "+X.bd}}>{["","🎧L","Raw","📖R","Raw","✍️W","🗣️S","OA"].map(function(h,i){return(<th key={i} style={{padding:"10px",textAlign:"center",color:X.txm,fontSize:13}}>{h}</th>);})}</tr></thead><tbody>
+            <tr style={{borderBottom:"1px solid "+X.bd+"50"}}><td style={{padding:"10px",color:X.txm}}>초기 진단</td><td style={{textAlign:"center",fontFamily:MO,color:bc(sc.lb)}}>{sc.lb}</td><td style={{textAlign:"center",fontFamily:MO,color:X.txm,fontSize:12}}>{sc.lr}/40</td><td style={{textAlign:"center",fontFamily:MO,color:bc(sc.rb)}}>{sc.rb}</td><td style={{textAlign:"center",fontFamily:MO,color:X.txm,fontSize:12}}>{sc.rr}/40</td><td style={{textAlign:"center",fontFamily:MO,color:bc(sc.wb)}}>{sc.wb}</td><td style={{textAlign:"center",fontFamily:MO,color:bc(sc.sb)}}>{sc.sb}</td><td style={{textAlign:"center",fontFamily:MO,fontWeight:700,color:bc(sc.ov)}}>{sc.ov}</td></tr>
+            {mocks.map(function(s,i){var b=mB(s);return(<tr key={s.id} style={{borderBottom:"1px solid "+X.bd+"50"}}><td style={{padding:"10px"}}>{s.dt} <span style={{color:X.p,fontSize:12}}>#{i+1}</span></td><td style={{textAlign:"center",fontFamily:MO,color:bc(b.L)}}>{b.L}</td><td style={{textAlign:"center",fontFamily:MO,color:X.txm,fontSize:12}}>{b.lr}/40</td><td style={{textAlign:"center",fontFamily:MO,color:bc(b.R)}}>{b.R}</td><td style={{textAlign:"center",fontFamily:MO,color:X.txm,fontSize:12}}>{b.rr}/40</td><td style={{textAlign:"center",fontFamily:MO,color:bc(b.W)}}>{b.W}</td><td style={{textAlign:"center",fontFamily:MO,color:bc(b.S)}}>{b.S}</td><td style={{textAlign:"center",fontFamily:MO,fontWeight:700,color:bc(b.OA)}}>{b.OA}</td></tr>);})}
+            {mocks.length>0&&(<tr style={{background:X.acS}}><td style={{padding:"10px",fontWeight:700}}>성장폭</td>{["L","R"].map(function(k){var f=sc[k.toLowerCase()+"b"];var l=mB(mocks[mocks.length-1])[k];var d=l-f;return[<td key={k} style={{textAlign:"center",fontFamily:MO,fontWeight:700,color:d>0?X.g:d<0?X.r:X.txm}}>{d>0?"+":""}{d.toFixed(1)}</td>,<td key={k+"r"} style={{textAlign:"center",color:X.txm}}>—</td>];}).flat()}{["W","S","OA"].map(function(k){var f=k==="OA"?sc.ov:sc[k.toLowerCase()+"b"];var l=mB(mocks[mocks.length-1])[k];var d=l-f;return(<td key={k} style={{textAlign:"center",fontFamily:MO,fontWeight:700,color:d>0?X.g:d<0?X.r:X.txm}}>{d>0?"+":""}{d.toFixed(1)}</td>);})}</tr>)}
+          </tbody></table>
+        </div>
+
+        {/* 밴드 추이 */}
+        {mocks.length>=2&&(<div style={crd}><h4 style={hd}>📈 밴드 추이</h4>
+          <ResponsiveContainer width="100%" height={240}><LineChart data={[{name:"초기",L:sc.lb,R:sc.rb,W:sc.wb,S:sc.sb}].concat(mocks.map(function(s,i){var b=mB(s);return{name:"#"+(i+1),L:b.L,R:b.R,W:b.W,S:b.S};}))}>
+            <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:12}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:12}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:12}}/>
+            {["L","R","W","S"].map(function(k,i){return(<Line key={k} type="monotone" dataKey={k} stroke={cols[i]} strokeWidth={2} dot={{r:4}} connectNulls/>);})}
+          </LineChart></ResponsiveContainer>
+        </div>)}
+
+        {/* 🎧 Listening 상세 */}
+        <div style={crd}>
+          <h4 style={hd}>🎧 Listening — 섹션별 / 문제유형별</h4>
+          {LT.map(function(sec){var iD=st.assess.lQt||{};var lD=mocks.length>0?(mocks[mocks.length-1].lQt||{}):{};var secT=sec.ty.reduce(function(a,t){return a+t.t;},0);var iC=0,lC=0;sec.ty.forEach(function(t,i){iC+=(iD[sec.id]&&iD[sec.id][i])||0;lC+=(lD[sec.id]&&lD[sec.id][i])||0;});return(<div key={sec.id} style={{background:X.bg,borderRadius:10,padding:14,marginBottom:10}}>
+            <GBar label={sec.lb+" ("+sec.d+")"} v1={iC} v2={lC} max={secT} lw={180}/>
+            {sec.ty.map(function(tp,ti){return(<GBar key={ti} label={"  └ "+tp.n} v1={(iD[sec.id]&&iD[sec.id][ti])||0} v2={(lD[sec.id]&&lD[sec.id][ti])||0} max={tp.t} lw={180}/>);})}
+          </div>);})}
+          {mocks.length>=2&&(<div><div style={shd}>섹션별 Raw Score 추이</div><ResponsiveContainer width="100%" height={200}><LineChart data={mocks.map(function(s,i){var d=s.lQt||{};var r={name:"#"+(i+1)};LT.forEach(function(sec){var c=0;sec.ty.forEach(function(t,ti){c+=(d[sec.id]&&d[sec.id][ti])||0;});r[sec.lb]=c;});return r;})}>
+            <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:11}}/>
+            {LT.map(function(s,i){return(<Line key={s.id} type="monotone" dataKey={s.lb} stroke={cols[i%4]} strokeWidth={2} dot={{r:3}}/>);})}
+          </LineChart></ResponsiveContainer></div>)}
+        </div>
+
+        {/* 📖 Reading 상세 */}
+        <div style={crd}>
+          <h4 style={hd}>📖 Reading — 지문별 / 문제유형별</h4>
+          {rT.map(function(sec){var iD=st.assess.rQt||{};var lD=mocks.length>0?(mocks[mocks.length-1].rQt||{}):{};var secT=sec.ty.reduce(function(a,t){return a+t.t;},0);var iC=0,lC=0;sec.ty.forEach(function(t,i){iC+=(iD[sec.id]&&iD[sec.id][i])||0;lC+=(lD[sec.id]&&lD[sec.id][i])||0;});return(<div key={sec.id} style={{background:X.bg,borderRadius:10,padding:14,marginBottom:10}}>
+            <GBar label={sec.lb+" ("+sec.d+")"} v1={iC} v2={lC} max={secT} lw={180}/>
+            {sec.ty.map(function(tp,ti){return(<GBar key={ti} label={"  └ "+tp.n} v1={(iD[sec.id]&&iD[sec.id][ti])||0} v2={(lD[sec.id]&&lD[sec.id][ti])||0} max={tp.t} lw={180}/>);})}
+          </div>);})}
+          {mocks.length>=2&&(<div><div style={shd}>지문별 Raw Score 추이</div><ResponsiveContainer width="100%" height={200}><LineChart data={mocks.map(function(s,i){var d=s.rQt||{};var r={name:"#"+(i+1)};rT.forEach(function(sec){var c=0;sec.ty.forEach(function(t,ti){c+=(d[sec.id]&&d[sec.id][ti])||0;});r[sec.lb]=c;});return r;})}>
+            <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:11}}/>
+            {rT.map(function(s,i){return(<Line key={s.id} type="monotone" dataKey={s.lb} stroke={cols[i%4]} strokeWidth={2} dot={{r:3}}/>);})}
+          </LineChart></ResponsiveContainer></div>)}
+        </div>
+
+        {/* ✍️ Writing 상세 */}
+        <div style={crd}>
+          <h4 style={hd}>✍️ Writing — Task별 / 기준별</h4>
+          {mocks.filter(function(s){var w=s.wCr||{};return w.t2&&w.t2.ta>0;}).length>=2&&(<div><div style={shd}>Task 2 기준 추이 (가중 2/3)</div><ResponsiveContainer width="100%" height={220}><LineChart data={mocks.filter(function(s){var w=s.wCr||{};return w.t2&&w.t2.ta>0;}).map(function(s,i){var t2=(s.wCr||{}).t2||{};return{name:"#"+(i+1),TA:t2.ta||0,CC:t2.cc||0,LR:t2.lr||0,GRA:t2.gra||0};})}>
+            <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:12}}/>
+            <Line type="monotone" dataKey="TA" stroke="#f59e0b" strokeWidth={2} dot={{r:4}} name="Task Ach."/><Line type="monotone" dataKey="CC" stroke="#3b82f6" strokeWidth={2} dot={{r:4}} name="Coherence"/><Line type="monotone" dataKey="LR" stroke="#ec4899" strokeWidth={2} dot={{r:4}} name="Lexical"/><Line type="monotone" dataKey="GRA" stroke="#22c55e" strokeWidth={2} dot={{r:4}} name="Grammar"/>
+          </LineChart></ResponsiveContainer></div>)}
+          <div style={shd}>초기 → 최근 비교</div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>{["t1","t2"].map(function(tid){var iW=(st.assess.w||{})[tid]||{};var lM=mocks.filter(function(s){var w=s.wCr||{};return w[tid]&&w[tid].ta>0;});var lat=lM.length>0?(lM[lM.length-1].wCr||{})[tid]||{}:{};return(<div key={tid} style={{background:X.bg,borderRadius:10,padding:14}}><div style={{fontSize:14,fontWeight:600,marginBottom:8}}>{tid==="t1"?"Task 1 (1/3)":"Task 2 (2/3)"}</div>{WL.map(function(lb,i){var ck=WK[i];return(<GBar key={ck} label={lb} v1={iW[ck]||0} v2={lat[ck]||0} lw={100}/>);})}</div>);})}</div>
+        </div>
+
+        {/* 🗣️ Speaking 상세 */}
+        <div style={crd}>
+          <h4 style={hd}>🗣️ Speaking — 파트별 / 기준별</h4>
+          {mocks.filter(function(s){var sp=s.sCr||{};return sp.p1&&sp.p1.fc>0;}).length>=2&&(<div><div style={shd}>세부기준 추이 (전체 평균)</div><ResponsiveContainer width="100%" height={220}><LineChart data={mocks.filter(function(s){var sp=s.sCr||{};return sp.p1&&sp.p1.fc>0;}).map(function(s,i){var sp=s.sCr||{};var av=function(k){var t=0,c=0;SP.forEach(function(pt){var v=(sp[pt.id]&&sp[pt.id][k])||0;if(v>0){t+=v;c++;}});return c>0?Math.round(t/c*10)/10:0;};return{name:"#"+(i+1),FC:av("fc"),LR:av("lr"),GRA:av("gra"),Pron:av("pron")};})}>
+            <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:12}}/>
+            <Line type="monotone" dataKey="FC" stroke="#f59e0b" strokeWidth={2} dot={{r:4}} name="Fluency"/><Line type="monotone" dataKey="LR" stroke="#3b82f6" strokeWidth={2} dot={{r:4}} name="Lexical"/><Line type="monotone" dataKey="GRA" stroke="#ec4899" strokeWidth={2} dot={{r:4}} name="Grammar"/><Line type="monotone" dataKey="Pron" stroke="#22c55e" strokeWidth={2} dot={{r:4}} name="Pronun."/>
+          </LineChart></ResponsiveContainer></div>)}
+          <div style={shd}>파트별 초기 → 최근 비교</div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}}>{SP.map(function(part){var iS=(st.assess&&st.assess.s&&st.assess.s[part.id])||{};var lM=mocks.filter(function(s){var sp=s.sCr||{};return sp[part.id]&&sp[part.id].fc>0;});var lat=lM.length>0?(lM[lM.length-1].sCr||{})[part.id]||{}:{};var iB=crA(iS,SK);var lB=crA(lat,SK);var d=lB-iB;return(<div key={part.id} style={{background:X.bg,borderRadius:10,padding:14}}><div style={{display:"flex",justifyContent:"space-between",marginBottom:6}}><span style={{fontSize:14,fontWeight:600}}>{part.lb}</span><span style={{fontFamily:MO,fontSize:13,color:d>0?X.g:d<0?X.r:X.txm}}>{iB}→{lB} {d!==0?(d>0?"+":"")+d.toFixed(1):""}</span></div><div style={{fontSize:12,color:X.p,marginBottom:8}}>{part.focus}</div>{SL.map(function(lb,i){var ck=SK[i];return(<GBar key={ck} label={lb} v1={iS[ck]||0} v2={lat[ck]||0} lw={80}/>);})}</div>);})}</div>
+          {SP.map(function(part){var data=mocks.filter(function(s){var sp=s.sCr||{};return sp[part.id]&&sp[part.id].fc>0;});if(data.length<2)return null;return(<div key={part.id}><div style={shd}>{part.lb} 추이 ({part.d})</div><ResponsiveContainer width="100%" height={160}><LineChart data={data.map(function(s,i){var pd=(s.sCr||{})[part.id]||{};return{name:"#"+(i+1),FC:pd.fc||0,LR:pd.lr||0,GRA:pd.gra||0,Pron:pd.pron||0};})}>
+            <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:10}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:10}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:12}}/>
+            <Line type="monotone" dataKey="FC" stroke="#f59e0b" strokeWidth={2} dot={{r:3}}/><Line type="monotone" dataKey="LR" stroke="#3b82f6" strokeWidth={2} dot={{r:3}}/><Line type="monotone" dataKey="GRA" stroke="#ec4899" strokeWidth={2} dot={{r:3}}/><Line type="monotone" dataKey="Pron" stroke="#22c55e" strokeWidth={2} dot={{r:3}}/>
+          </LineChart></ResponsiveContainer></div>);})}
+        </div>
+
+        {/* 문제 패턴 */}
+        <div style={crd}><h4 style={hd}>⚠️ 모의고사 문제 패턴</h4><ECloud sessions={mocks}/></div>
+      </div>)}
+    </div>)}
+
+    {/* ═══ 일반 수업 ═══ */}
+    {mode==="lesson"&&(<div style={{display:"grid",gap:14}}>
+      {lessons.length===0?(<div style={{textAlign:"center",padding:40,color:X.txm,fontSize:15}}>수업 기록 없음</div>):(<div style={{display:"grid",gap:14}}>
+
+        {/* ① 출석 & 숙제 */}
+        <div style={crd}>
+          <h4 style={hd}>📌 출석 & 숙제</h4>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,marginBottom:14}}>
+            {[["출석률",att+"%",att>=80?X.g:X.r],["총 숙제",hwT+"개",X.ac],["완료",hwD+"개",X.g],["숙제 완료율",hwT?Math.round(hwD/hwT*100)+"%":"—",hwT&&hwD/hwT>=.7?X.g:X.o]].map(function(a,i){return(<div key={i} style={{background:X.bg,borderRadius:10,padding:14,textAlign:"center"}}><div style={{color:X.txm,fontSize:12}}>{a[0]}</div><div style={{fontSize:22,fontFamily:MO,fontWeight:700,color:a[2]}}>{a[1]}</div></div>);})}
+          </div>
+          {lessons.some(function(s){return s.hw&&s.hw.length>0;})&&(<div><div style={shd}>수업별 숙제 완료</div><ResponsiveContainer width="100%" height={180}><BarChart data={lessons.filter(function(s){return s.hw&&s.hw.length>0;}).map(function(s){return{name:"#"+s.num,done:s.hw.filter(function(h){return h.done;}).length,miss:s.hw.filter(function(h){return!h.done;}).length};})}>
+            <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:12}}/>
+            <Bar dataKey="done" fill={X.g} stackId="a" name="완료"/><Bar dataKey="miss" fill={X.r} stackId="a" radius={[3,3,0,0]} name="미완"/>
+          </BarChart></ResponsiveContainer></div>)}
+          {ss.filter(function(s){return!s.att;}).length>0&&(<div style={{marginTop:8,color:X.r,fontSize:14}}>결석일: {ss.filter(function(s){return!s.att;}).map(function(s){return s.dt;}).join(", ")}</div>)}
+        </div>
+
+        {/* ② 🎧 Listening 수업 현황 */}
+        <div style={crd}>
+          <h4 style={hd}>🎧 Listening — 수업에서 다룬 문제유형</h4>
+          <div style={{fontSize:13,color:X.txm,marginBottom:10}}>일반 수업에서는 선택한 문제유형별 학습 빈도를 보여줍니다</div>
+          {LT.map(function(sec){
+            return(<div key={sec.id} style={{background:X.bg,borderRadius:10,padding:14,marginBottom:8}}>
+              <div style={{fontSize:14,fontWeight:600,marginBottom:8}}>{sec.lb} <span style={{color:X.txm,fontWeight:400}}>{sec.d}</span></div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:8}}>
+                {sec.ty.map(function(tp,ti){
+                  var key=sec.id+"-"+ti;
+                  var count=lessons.filter(function(s){return s.qtSel&&s.qtSel[key];}).length;
+                  var pct=lessons.length>0?Math.round(count/lessons.length*100):0;
+                  return(<div key={ti} style={{padding:"10px 14px",borderRadius:8,background:count>0?X.ac+"10":X.s3,border:"1px solid "+(count>0?X.ac+"30":X.bd)}}>
+                    <div style={{fontSize:13,fontWeight:count>0?600:400,color:count>0?X.ac:X.txm}}>{tp.n}</div>
+                    <div style={{display:"flex",alignItems:"center",gap:8,marginTop:6}}>
+                      <div style={{flex:1,height:6,background:X.s3,borderRadius:3,overflow:"hidden"}}><div style={{width:pct+"%",height:"100%",background:pct>=50?X.g:pct>0?X.ac:X.s3,borderRadius:3}}/></div>
+                      <span style={{fontFamily:MO,fontSize:13,fontWeight:700,color:count>0?X.ac:X.txm}}>{count}회</span>
+                      <span style={{fontSize:11,color:X.txm}}>({pct}%)</span>
+                    </div>
+                  </div>);
+                })}
+              </div>
+            </div>);
+          })}
+        </div>
+
+        {/* ③ 📖 Reading 수업 현황 */}
+        <div style={crd}>
+          <h4 style={hd}>📖 Reading — 수업에서 다룬 문제유형</h4>
+          {rT.map(function(sec){
+            return(<div key={sec.id} style={{background:X.bg,borderRadius:10,padding:14,marginBottom:8}}>
+              <div style={{fontSize:14,fontWeight:600,marginBottom:8}}>{sec.lb} <span style={{color:X.txm,fontWeight:400}}>{sec.d}</span></div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:8}}>
+                {sec.ty.map(function(tp,ti){
+                  var key=sec.id+"-"+ti;
+                  var count=lessons.filter(function(s){return s.qtSel&&s.qtSel[key];}).length;
+                  var pct=lessons.length>0?Math.round(count/lessons.length*100):0;
+                  return(<div key={ti} style={{padding:"10px 14px",borderRadius:8,background:count>0?X.ac+"10":X.s3,border:"1px solid "+(count>0?X.ac+"30":X.bd)}}>
+                    <div style={{fontSize:13,fontWeight:count>0?600:400,color:count>0?X.ac:X.txm}}>{tp.n}</div>
+                    <div style={{display:"flex",alignItems:"center",gap:8,marginTop:6}}>
+                      <div style={{flex:1,height:6,background:X.s3,borderRadius:3,overflow:"hidden"}}><div style={{width:pct+"%",height:"100%",background:pct>=50?X.g:pct>0?X.ac:X.s3,borderRadius:3}}/></div>
+                      <span style={{fontFamily:MO,fontSize:13,fontWeight:700,color:count>0?X.ac:X.txm}}>{count}회</span>
+                    </div>
+                  </div>);
+                })}
+              </div>
+            </div>);
+          })}
+        </div>
+
+        {/* ④ ✍️ Writing 수업 상세 */}
+        <div style={crd}>
+          <h4 style={hd}>✍️ Writing — 수업별 기준 변화</h4>
+          {lessons.filter(function(s){var w=s.wCr||{};return w.t2&&w.t2.ta>0;}).length>=2?(<div>
+            <div style={shd}>Task 2 기준 추이 (가중 2/3)</div>
+            <ResponsiveContainer width="100%" height={220}><LineChart data={lessons.filter(function(s){var w=s.wCr||{};return w.t2&&w.t2.ta>0;}).map(function(s){var t2=(s.wCr||{}).t2||{};return{name:s.dt.slice(5),TA:t2.ta||0,CC:t2.cc||0,LR:t2.lr||0,GRA:t2.gra||0};})}>
+              <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:12}}/>
+              <Line type="monotone" dataKey="TA" stroke="#f59e0b" strokeWidth={2} dot={{r:3}} name="Task Ach."/><Line type="monotone" dataKey="CC" stroke="#3b82f6" strokeWidth={2} dot={{r:3}} name="Coherence"/><Line type="monotone" dataKey="LR" stroke="#ec4899" strokeWidth={2} dot={{r:3}} name="Lexical"/><Line type="monotone" dataKey="GRA" stroke="#22c55e" strokeWidth={2} dot={{r:3}} name="Grammar"/>
+            </LineChart></ResponsiveContainer>
+            {lessons.filter(function(s){var w=s.wCr||{};return w.t1&&w.t1.ta>0;}).length>=2&&(<div>
+              <div style={shd}>Task 1 기준 추이 (가중 1/3)</div>
+              <ResponsiveContainer width="100%" height={180}><LineChart data={lessons.filter(function(s){var w=s.wCr||{};return w.t1&&w.t1.ta>0;}).map(function(s){var t1=(s.wCr||{}).t1||{};return{name:s.dt.slice(5),TA:t1.ta||0,CC:t1.cc||0,LR:t1.lr||0,GRA:t1.gra||0};})}>
+                <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/>
+                <Line type="monotone" dataKey="TA" stroke="#f59e0b" strokeWidth={2} dot={{r:2}}/><Line type="monotone" dataKey="CC" stroke="#3b82f6" strokeWidth={2} dot={{r:2}}/><Line type="monotone" dataKey="LR" stroke="#ec4899" strokeWidth={2} dot={{r:2}}/><Line type="monotone" dataKey="GRA" stroke="#22c55e" strokeWidth={2} dot={{r:2}}/>
+              </LineChart></ResponsiveContainer>
+            </div>)}
+          </div>):(<div style={{color:X.txm,textAlign:"center",padding:16}}>Writing 채점 데이터 2회 이상 필요</div>)}
+        </div>
+
+        {/* ⑤ 🗣️ Speaking 수업 상세 */}
+        <div style={crd}>
+          <h4 style={hd}>🗣️ Speaking — 수업별 기준 변화</h4>
+          {lessons.filter(function(s){var sp=s.sCr||{};return sp.p1&&sp.p1.fc>0;}).length>=2?(<div>
+            <div style={shd}>전체 평균 추이</div>
+            <ResponsiveContainer width="100%" height={220}><LineChart data={lessons.filter(function(s){var sp=s.sCr||{};return sp.p1&&sp.p1.fc>0;}).map(function(s){var sp=s.sCr||{};var av=function(k){var t=0,c=0;SP.forEach(function(pt){var v=(sp[pt.id]&&sp[pt.id][k])||0;if(v>0){t+=v;c++;}});return c>0?Math.round(t/c*10)/10:0;};return{name:s.dt.slice(5),FC:av("fc"),LR:av("lr"),GRA:av("gra"),Pron:av("pron")};})}>
+              <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:11}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:11}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:13}}/><Legend wrapperStyle={{fontSize:12}}/>
+              <Line type="monotone" dataKey="FC" stroke="#f59e0b" strokeWidth={2} dot={{r:3}} name="Fluency"/><Line type="monotone" dataKey="LR" stroke="#3b82f6" strokeWidth={2} dot={{r:3}} name="Lexical"/><Line type="monotone" dataKey="GRA" stroke="#ec4899" strokeWidth={2} dot={{r:3}} name="Grammar"/><Line type="monotone" dataKey="Pron" stroke="#22c55e" strokeWidth={2} dot={{r:3}} name="Pronun."/>
+            </LineChart></ResponsiveContainer>
+            {SP.map(function(part){var data=lessons.filter(function(s){var sp=s.sCr||{};return sp[part.id]&&sp[part.id].fc>0;});if(data.length<2)return null;return(<div key={part.id}><div style={shd}>{part.lb} 추이 ({part.d})</div><ResponsiveContainer width="100%" height={160}><LineChart data={data.map(function(s){var pd=(s.sCr||{})[part.id]||{};return{name:s.dt.slice(5),FC:pd.fc||0,LR:pd.lr||0,GRA:pd.gra||0,Pron:pd.pron||0};})}>
+              <CartesianGrid stroke={X.bd} strokeDasharray="3 3"/><XAxis dataKey="name" tick={{fill:X.txm,fontSize:10}}/><YAxis domain={yD} tick={{fill:X.txm,fontSize:10}}/><Tooltip contentStyle={{background:X.s1,border:"1px solid "+X.bd,borderRadius:9,fontSize:12}}/>
+              <Line type="monotone" dataKey="FC" stroke="#f59e0b" strokeWidth={2} dot={{r:2}}/><Line type="monotone" dataKey="LR" stroke="#3b82f6" strokeWidth={2} dot={{r:2}}/><Line type="monotone" dataKey="GRA" stroke="#ec4899" strokeWidth={2} dot={{r:2}}/><Line type="monotone" dataKey="Pron" stroke="#22c55e" strokeWidth={2} dot={{r:2}}/>
+            </LineChart></ResponsiveContainer></div>);})}
+          </div>):(<div style={{color:X.txm,textAlign:"center",padding:16}}>Speaking 채점 데이터 2회 이상 필요</div>)}
+        </div>
+
+        {/* ⑥ 문제 패턴 */}
+        <div style={crd}><h4 style={hd}>⚠️ 수업 중 문제 패턴</h4><ECloud sessions={lessons}/></div>
+      </div>)}
+    </div>)}
   </div>);
 }
 
@@ -908,5 +1183,165 @@ function OuTab(p){
         <div><span style={{color:X.txm}}>성장:</span> <span style={{fontFamily:MO,color:(fov-sc.ov)>0?X.g:X.r}}>{fov?(fov-sc.ov>0?"+":"")+(fov-sc.ov).toFixed(1):"—"}</span></div>
       </div>
     </div>
+  </div>);
+}
+
+/* ═══ IELTS INFO ═══ */
+function InfoTab(){
+  var _sec=useState("overview");var sec=_sec[0],setSec=_sec[1];
+  var secs=[["overview","📋 시험 개요"],["acgt","🔀 Ac vs GT"],["format","📝 시험 구성"],["scoring","📊 채점 기준"],["band","🎯 변환표"],["osr","🔄 OSR/리테이크"],["tips","💡 상담 팁"]];
+  var crd=Object.assign({},cs,{padding:22,marginBottom:14});
+  var hd={fontSize:17,fontWeight:700,margin:"0 0 14px",color:X.ac};
+  var shd={fontSize:15,fontWeight:600,margin:"16px 0 8px"};
+  var tx={fontSize:14,lineHeight:"1.9",color:X.tx};
+  var txm2={fontSize:13,color:X.txm,lineHeight:"1.8"};
+  var hi=function(c){return{fontSize:14,lineHeight:"1.8",padding:"12px 16px",background:c+"10",borderLeft:"3px solid "+c,borderRadius:"0 8px 8px 0",marginBottom:10};};
+  var tbl={width:"100%",borderCollapse:"collapse",fontSize:13};
+  var th={padding:"8px 10px",textAlign:"center",background:X.s2,color:X.txm,borderBottom:"2px solid "+X.bd,fontSize:12,fontWeight:600};
+  var td={padding:"6px 10px",textAlign:"center",borderBottom:"1px solid "+X.bd+"50",fontFamily:MO,fontSize:13};
+
+  return(<div>
+    <div style={{display:"flex",gap:4,marginBottom:18,flexWrap:"wrap"}}>{secs.map(function(s){return(<Chip key={s[0]} active={sec===s[0]} onClick={function(){setSec(s[0]);}}>{s[1]}</Chip>);})}</div>
+
+    {sec==="overview"&&(<div style={crd}>
+      <h3 style={hd}>IELTS란?</h3>
+      <div style={tx}>
+        <p><strong>International English Language Testing System</strong></p>
+        <p>1989년 British Council, IDP, Cambridge Assessment English 공동 개발. 전 세계 11,500+ 기관 인정, 연 350만+ 응시.</p>
+        <div style={shd}>시험 방식</div>
+        <p><strong>Paper-based (PBT)</strong> — 종이시험, Speaking 별도 일정</p>
+        <p><strong>Computer-delivered (CDT)</strong> — 컴퓨터, 결과 3-5일, 한국은 CDT 주류</p>
+        <div style={shd}>비용 / 유효기간</div>
+        <p>한국: <strong>₩283,000</strong> (2025-2026) · 유효기간: <strong>2년</strong></p>
+      </div>
+    </div>)}
+
+    {sec==="acgt"&&(<div style={crd}>
+      <h3 style={hd}>Academic vs General Training 비교</h3>
+      <div style={hi(X.ac)}><strong>공통:</strong> Listening 과 Speaking은 Academic/GT 완전 동일합니다. 차이는 Reading과 Writing만 있습니다.</div>
+      <table style={tbl}><thead><tr><th style={th}>구분</th><th style={Object.assign({},th,{color:"#3b82f6"})}>Academic</th><th style={Object.assign({},th,{color:"#22c55e"})}>General Training</th></tr></thead><tbody>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>용도</td><td style={Object.assign({},td,{fontFamily:FT})}>대학/대학원 입학, 전문직</td><td style={Object.assign({},td,{fontFamily:FT})}>이민, 취업, 직업훈련</td></tr>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>🎧 Listening</td><td colSpan={2} style={Object.assign({},td,{fontFamily:FT,color:X.txm})}>동일 — 4 Section, 40문항, 30분</td></tr>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>📖 Reading</td><td style={Object.assign({},td,{fontFamily:FT})}>학술 지문 3개 (800-900단어)</td><td style={Object.assign({},td,{fontFamily:FT})}>일상→직장→일반 3 Section</td></tr>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>R 난이도</td><td style={Object.assign({},td,{fontFamily:FT,color:"#f97316"})}>더 어려움</td><td style={Object.assign({},td,{fontFamily:FT,color:"#22c55e"})}>비교적 쉬움</td></tr>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>R 변환표</td><td style={Object.assign({},td,{fontFamily:FT})}>30/40 = Band 7.0</td><td style={Object.assign({},td,{fontFamily:FT})}>34/40 = Band 7.0 (더 높아야 함)</td></tr>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>✍️ Writing T1</td><td style={Object.assign({},td,{fontFamily:FT})}>그래프/차트/프로세스/지도 묘사</td><td style={Object.assign({},td,{fontFamily:FT})}>편지 쓰기 (격식/비격식)</td></tr>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>✍️ Writing T2</td><td colSpan={2} style={Object.assign({},td,{fontFamily:FT,color:X.txm})}>동일 — 에세이 250단어+ (유형도 동일)</td></tr>
+        <tr><td style={Object.assign({},td,{color:X.txm,fontFamily:FT})}>🗣️ Speaking</td><td colSpan={2} style={Object.assign({},td,{fontFamily:FT,color:X.txm})}>동일 — Part 1/2/3, 11-14분</td></tr>
+      </tbody></table>
+      <div style={Object.assign({},hi(X.y),{marginTop:14})}><strong>핵심:</strong> GT Reading이 쉬운 대신 변환표가 더 까다로움. Academic 30/40=7.0이지만 GT는 34/40=7.0. 결국 같은 밴드를 받으려면 GT도 쉽지 않음.</div>
+    </div>)}
+
+    {sec==="format"&&(<div style={crd}>
+      <h3 style={hd}>시험 구성 상세</h3>
+      <div style={tx}>
+        <div style={shd}>🎧 Listening (30분 + 전사 10분) — Ac/GT 동일</div>
+        <p>40문항, 4 Section, 음원 1회 재생</p>
+        <p><strong>S1:</strong> 일상 대화(2명) — Form/Note Comp, MC</p>
+        <p><strong>S2:</strong> 일상 모놀로그(1명) — MC, Map/Plan, Sentence Comp</p>
+        <p><strong>S3:</strong> 학술 토론(2-4명) — MC, Matching, Summary</p>
+        <p><strong>S4:</strong> 학술 강의(1명) — Sentence/Note Completion</p>
+
+        <div style={shd}>📖 Reading (60분)</div>
+        <div style={hi("#3b82f6")}><strong>Academic:</strong> 학술 지문 3개 (Passage 1→3 난이도 상승), 총 40문항<br/>문제유형: T/F/NG, Matching Headings, MC, Summary, Sentence Completion 등</div>
+        <div style={hi("#22c55e")}><strong>GT:</strong> 3 Section — S1(광고/안내), S2(직장문서), S3(일반 긴 지문), 총 40문항<br/>문제유형: T/F/NG, Y/N/NG, Matching, Short Answer, MC 등</div>
+
+        <div style={shd}>✍️ Writing (60분)</div>
+        <div style={hi("#3b82f6")}><strong>Academic Task 1 (20분):</strong> 그래프/차트/프로세스/지도 묘사, 150단어+</div>
+        <div style={hi("#22c55e")}><strong>GT Task 1 (20분):</strong> 편지 쓰기 (Formal/Semi-formal/Informal), 150단어+</div>
+        <p><strong>Task 2 (40분) — Ac/GT 동일:</strong> 에세이 250단어+</p>
+        <p>유형: Agree/Disagree, Both Views, Problem/Solution, Advantage/Disadvantage, Two-part</p>
+        <p style={txm2}>※ Task 2 가중치가 Task 1의 2배 (2/3 vs 1/3)</p>
+
+        <div style={shd}>🗣️ Speaking (11-14분) — Ac/GT 동일</div>
+        <p><strong>Part 1 (4-5분):</strong> 자기소개 + 일상 주제 → Fluency & Pron 중점</p>
+        <p><strong>Part 2 (3-4분):</strong> 1분 준비, 2분 발표 (Cue Card) → FC & LR 중점</p>
+        <p><strong>Part 3 (4-5분):</strong> Part 2 연계 심화 토론 → GRA & LR 중점</p>
+      </div>
+    </div>)}
+
+    {sec==="scoring"&&(<div style={crd}>
+      <h3 style={hd}>채점 기준</h3>
+      <div style={tx}>
+        <div style={shd}>🎧 Listening / 📖 Reading</div>
+        <p>정답 수(/40) → 변환표로 Band 변환. <strong>스펠링 정확해야 함</strong>, 대소문자 무관</p>
+        <div style={hi(X.y)}>Academic Reading과 GT Reading은 변환표가 다릅니다 (변환표 탭 참고)</div>
+
+        <div style={shd}>✍️ Writing (4기준 × Band 0-9)</div>
+        <p><strong>Task Achievement (TA):</strong> 질문 응답 완성도, 입장 명확, 아이디어 발전</p>
+        <p><strong>Coherence & Cohesion (CC):</strong> 논리 구성, 문단 구조, 연결어</p>
+        <p><strong>Lexical Resource (LR):</strong> 어휘 범위·정확성, 콜로케이션</p>
+        <p><strong>Grammatical Range & Accuracy (GRA):</strong> 문법 다양성·정확도</p>
+        <p style={txm2}>최종 = Task1(1/3) + Task2(2/3), 각 4기준 평균</p>
+
+        <div style={shd}>🗣️ Speaking (4기준 × Band 0-9)</div>
+        <p><strong>Fluency & Coherence (FC):</strong> 유창성, 속도, 자연스러운 연결</p>
+        <p><strong>Lexical Resource (LR):</strong> 어휘 범위, 정확한 단어 선택</p>
+        <p><strong>Grammatical Range & Accuracy (GRA):</strong> 문법 다양성·정확도</p>
+        <p><strong>Pronunciation (Pron):</strong> 발음, 강세, 억양, 연음</p>
+        <p style={txm2}>최종 = 4기준 평균, 0.5 반올림</p>
+
+        <div style={shd}>Overall Band Score</div>
+        <p>Overall = (L + R + W + S) ÷ 4</p>
+        <p>.25↑ → 0.5 올림 · .75↑ → 1.0 올림</p>
+        <p>예: (7+6.5+6+6.5)/4 = 6.5 → <strong>Overall 6.5</strong></p>
+        <p>예: (7+7+6.5+7)/4 = 6.875 → <strong>Overall 7.0</strong></p>
+      </div>
+    </div>)}
+
+    {sec==="band"&&(<div style={crd}>
+      <h3 style={hd}>Raw Score → Band 변환표</h3>
+      <div style={shd}>🎧 Listening (Ac/GT 동일)</div>
+      <div style={{overflowX:"auto"}}><table style={tbl}><thead><tr>{["Raw","39-40","37-38","35-36","33-34","30-32","27-29","23-26","20-22","16-19","13-15","10-12"].map(function(h){return(<th key={h} style={th}>{h}</th>);})}</tr></thead><tbody><tr>{["Band","9","8.5","8","7.5","7","6.5","6","5.5","5","4.5","4"].map(function(v,i){return(<td key={i} style={Object.assign({},td,{color:i===0?X.txm:bc(parseFloat(v))})}>{v}</td>);})}</tr></tbody></table></div>
+      <div style={shd}>📖 Reading — Academic</div>
+      <div style={{overflowX:"auto"}}><table style={tbl}><thead><tr>{["Raw","39-40","37-38","35-36","33-34","30-32","27-29","23-26","19-22","15-18","13-14","10-12"].map(function(h){return(<th key={h} style={th}>{h}</th>);})}</tr></thead><tbody><tr>{["Band","9","8.5","8","7.5","7","6.5","6","5.5","5","4.5","4"].map(function(v,i){return(<td key={i} style={Object.assign({},td,{color:i===0?X.txm:bc(parseFloat(v))})}>{v}</td>);})}</tr></tbody></table></div>
+      <div style={shd}>📖 Reading — General Training</div>
+      <div style={{overflowX:"auto"}}><table style={tbl}><thead><tr>{["Raw","40","39","38","36-37","34-35","32-33","30-31","27-29","23-26","19-22","15-18"].map(function(h){return(<th key={h} style={th}>{h}</th>);})}</tr></thead><tbody><tr>{["Band","9","8.5","8","7.5","7","6.5","6","5.5","5","4.5","4"].map(function(v,i){return(<td key={i} style={Object.assign({},td,{color:i===0?X.txm:bc(parseFloat(v))})}>{v}</td>);})}</tr></tbody></table></div>
+      <div style={hi(X.y)}>GT는 지문이 쉬운 대신 같은 밴드를 받으려면 더 높은 Raw Score 필요. 예: Band 7.0 → Ac: 30/40 vs GT: 34/40</div>
+    </div>)}
+
+    {sec==="osr"&&(<div style={crd}>
+      <h3 style={hd}>One Skill Retake (OSR)</h3>
+      <div style={tx}>
+        <p>2023년 도입. <strong>4영역 중 1개만 재시험</strong> 가능.</p>
+        <div style={shd}>조건</div>
+        <p>• 원래 시험일로부터 <strong>60일 이내</strong></p>
+        <p>• <strong>같은 센터</strong>에서만 가능 · <strong>CDT만</strong> 가능 (Paper 불가) · <strong>1회만</strong></p>
+        <div style={shd}>비용</div>
+        <p>약 <strong>₩180,000~200,000</strong> (전체의 ~70%)</p>
+        <div style={shd}>결과</div>
+        <p>OSR 결과와 원래 중 <strong>높은 점수</strong>로 새 성적표 발급. OSR 표시 없음.</p>
+        <div style={shd}>전략</div>
+        <div style={hi(X.g)}>Overall 0.5 부족할 때 가장 올리기 쉬운 영역 1개만 리테이크. 예: L:7 R:7 W:6 S:7 = OA 6.5 → W만 리테이크해서 6.5 받으면 OA 7.0</div>
+        <div style={shd}>일반 재시험</div>
+        <p>제한 없음, 매주 가능. 최소 2-4주 간격 권장.</p>
+      </div>
+    </div>)}
+
+    {sec==="tips"&&(<div style={crd}>
+      <h3 style={hd}>상담 가이드</h3>
+      <div style={tx}>
+        <div style={shd}>밴드별 수준</div>
+        <p><span style={{color:bc(9)}}>■</span> 9.0 Expert — 원어민 수준</p>
+        <p><span style={{color:bc(8)}}>■</span> 8.0-8.5 — 복잡한 논증, 간헐적 실수</p>
+        <p><span style={{color:bc(7)}}>■</span> 7.0-7.5 — 대부분 상황 처리, 가끔 부정확</p>
+        <p><span style={{color:bc(6)}}>■</span> 6.0-6.5 — 일상 소통, 복잡한 표현 제한</p>
+        <p><span style={{color:bc(5)}}>■</span> 5.0-5.5 — 기본 소통, 실수 빈번</p>
+        <p><span style={{color:bc(4)}}>■</span> 4.0-4.5 — 익숙한 상황만 가능</p>
+        <div style={shd}>기관별 요구 점수</div>
+        <p><strong>영국 대학원:</strong> OA 6.5-7.0 (각 6.0-6.5+)</p>
+        <p><strong>호주 이민:</strong> OA 7.0+ (각 7.0+면 가산점)</p>
+        <p><strong>캐나다 Express Entry:</strong> CLB 7 = 각 6.0+</p>
+        <p><strong>간호사 (호주):</strong> OA 7.0 + 각 7.0</p>
+        <p><strong>의사 (영국):</strong> OA 7.5 + 각 7.0</p>
+        <div style={shd}>학습 기간 (주 3회 기준)</div>
+        <p>Band <strong>0.5↑:</strong> 4-6주 · <strong>1.0↑:</strong> 8-12주 · <strong>1.5↑:</strong> 12-16주 · <strong>2.0↑:</strong> 16주+</p>
+        <div style={shd}>섹션별 올리기 난이도</div>
+        <p><span style={{color:X.g}}>●</span> <strong>L</strong> 가장 쉬움 — 전략+반복으로 빠른 향상</p>
+        <p><span style={{color:X.y}}>●</span> <strong>R</strong> 보통 — 어휘+시간관리 필요</p>
+        <p><span style={{color:X.o}}>●</span> <strong>S</strong> 어려움 — 발음/유창성 시간 필요, 구조화로 단기 가능</p>
+        <p><span style={{color:X.r}}>●</span> <strong>W</strong> 가장 어려움 — 논리+어휘+문법 동시 필요</p>
+      </div>
+    </div>)}
   </div>);
 }

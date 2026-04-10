@@ -42,15 +42,16 @@ function dd(d){if(!d)return"—";var x=Math.ceil((new Date(d)-new Date())/864e5)
 function qR(ss,d){var t=0;ss.forEach(function(s){s.ty.forEach(function(tp,ti){t+=(d&&d[s.id]&&d[s.id][ti])||0;});});return t;}
 
 function calcAll(a,tt){
-  var lr=qR(LT,a.lQt),lb=r2b(lr,LB);
+  if(!a)return{lr:0,lb:0,rr:0,rb:0,wb:0,sb:0,ov:0};
+  var lr=qR(LT,a.lQt||{}),lb=r2b(lr,LB);
   var rt=tt==="general"?RG:RA;
-  var rr=qR(rt,a.rQt),rb=r2b(rr,tt==="general"?GB:AB);
-  var w1=WK.reduce(function(s,k){return s+(a.w.t1[k]||0);},0)/4;
-  var w2=WK.reduce(function(s,k){return s+(a.w.t2[k]||0);},0)/4;
+  var rr=qR(rt,a.rQt||{}),rb=r2b(rr,tt==="general"?GB:AB);
+  var w=a.w||{t1:{},t2:{}};var wt1=w.t1||{};var wt2=w.t2||{};
+  var w1=WK.reduce(function(s,k){return s+(wt1[k]||0);},0)/4;
+  var w2=WK.reduce(function(s,k){return s+(wt2[k]||0);},0)/4;
   var wb=Math.round((w1/3+w2*2/3)*2)/2;
-  /* Speaking: avg across all 3 parts */
-  var sTotal=0,sCount=0;
-  SP.forEach(function(p){SK.forEach(function(k){var v=(a.s[p.id]&&a.s[p.id][k])||0;if(v>0){sTotal+=v;sCount++;}});});
+  var sTotal=0,sCount=0;var sp=a.s||{};
+  SP.forEach(function(p){var pd=sp[p.id]||{};SK.forEach(function(k){var v=pd[k]||0;if(v>0){sTotal+=v;sCount++;}});});
   var sb=sCount>0?Math.round((sTotal/sCount)*2)/2:0;
   return{lr:lr,lb:lb,rr:rr,rb:rb,wb:wb,sb:sb,ov:ovBand(lb,rb,wb,sb)};
 }
@@ -179,7 +180,11 @@ export default function App(){
     var sub=onAuthChange(function(ev,sess){setUser(sess?sess.user:null);});
     return function(){if(sub&&sub.data&&sub.data.subscription)sub.data.subscription.unsubscribe();};
   },[]);
-  useEffect(function(){if(user)loadStudents().then(function(d){if(d)setStudents(d);});},[user]);
+  useEffect(function(){if(user)loadStudents().then(function(d){
+    if(d)setStudents(d.map(function(s){
+      return Object.assign({assess:mkA(),sess:[],goals:mkG(),status:"active",outcome:"none",finalS:null},s);
+    }));
+  });},[user]);
   var _v=useState("list");var view=_v[0],setView=_v[1];
   var _si=useState(null);var selId=_si[0],setSelId=_si[1];
   var _tb=useState("overview");var tab=_tb[0],setTab=_tb[1];
